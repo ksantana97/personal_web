@@ -1,41 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { FaJs, FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
-import { SiTypescript, SiAstro } from 'react-icons/si';
-
-// Thông tin kỹ năng với logo ngôn ngữ lập trình
-const skills = [
-  { 
-    name: "JavaScript", 
-    level: 90, 
-    icon: FaJs
-  },
-  { 
-    name: "TypeScript", 
-    level: 85, 
-    icon: SiTypescript
-  },
-  { 
-    name: "React", 
-    level: 88, 
-    icon: FaReact
-  },
-  { 
-    name: "Node.js", 
-    level: 82, 
-    icon: FaNodeJs
-  },
-  { 
-    name: "Python", 
-    level: 75, 
-    icon: FaPython
-  },
-  { 
-    name: "Astro", 
-    level: 80, 
-    icon: SiAstro
-  }
-];
 ---
 <BaseLayout title="About Me" description="Learn more about my background, skills, and experience">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 theme-transition-all">
@@ -52,7 +16,7 @@ const skills = [
           </h1>
           
           <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 leading-relaxed theme-transition-color">
-            Un Científico de datos con muchas ganas de seguir aprendiendo.
+            Siempre un estudiante y nunca un maestro.
           </p>
           
           <div class="flex flex-wrap gap-4 social-links-container justify-center md:justify-start theme-transition-children">
@@ -70,10 +34,7 @@ const skills = [
             />
           </div>
           
-          <!-- Decorative elements - adjusted for mobile -->
-          <div class="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-zinc-100 dark:bg-zinc-800 rounded-full border-2 sm:border-4 border-white dark:border-zinc-900 shadow-lg flex items-center justify-center theme-transition-all">
-            <span class="text-2xl sm:text-3xl">👋</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -89,7 +50,7 @@ const skills = [
         
         <div class="prose prose-zinc dark:prose-invert max-w-none theme-transition-all">
           <p class="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 theme-transition-color">
-            ¡Hola! Si estás por aquí, entiendo que tienes interés por saber quién está detrás de los apuntes que estás leyendo. Así que no me queda más remedio que presentarme. Soy Karim, matemático de formación y científico de datos de profesión.
+            ¡Hola! Si estás por aquí, entiendo que tienes interés por saber quién está detrás de los apuntes que estás leyendo. Así que no me queda más remedio que presentarme. Soy Karim, matemático de formación y científico de datos de profesión, pero que siempre he tenido un gran interés en las humanidades y la tecnología.El fin principal de esta página es servir de biblioteca para recopilar mis apuntes, libros y reflexiones sobre lo que voy aprendiendo, en un mundo en el que cada vez conseguir un conocimiento profundo, no artificial y duradero es difícil. Decido compartirlos como método de estudio y por si alguien puede sacar provecho de ellos, como yo mismo hago al consultar los de otros autores.
           </p>
           
           <!-- Other paragraphs remain the same -->
@@ -97,62 +58,23 @@ const skills = [
       </div>
     </div>
     
-    <!-- Skills Section - Improved for mobile -->
-    <div class="mb-16 sm:mb-20 md:mb-24 theme-transition-all">
-      <h2 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 sm:mb-12 text-center theme-transition-color">Tech Stack</h2>
-      
-      <div class="tech-stack-slider relative overflow-hidden py-4 sm:py-8">
-        <!-- Main slider container -->
-        <div class="slider-track flex animate-slide">
-          {[...skills, ...skills, ...skills].map((skill, index) => (
-            <div key={`${skill.name}-${index}`} class="skill-card min-w-[220px] sm:min-w-[280px] mx-2 sm:mx-4 bg-white dark:bg-zinc-800/50 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 theme-transition-element">
-              <div class="p-4 sm:p-6">
-                <div class="flex items-center justify-between mb-4 sm:mb-6">
-                  <div class="flex items-center gap-2 sm:gap-4">
-                    <div class="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 rounded-lg text-zinc-800 dark:text-zinc-200 transform transition-transform group-hover:rotate-12 theme-transition-bg theme-transition-color">
-                      <skill.icon size={20} className="sm:text-2xl transform transition-all hover:scale-125" />
-                    </div>
-                    <h3 class="text-base sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100 theme-transition-color">{skill.name}</h3>
-                  </div>
-                  <span class="text-xs sm:text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full theme-transition-all">{skill.level}%</span>
-                </div>
-                
-                <div class="relative h-1.5 sm:h-2 w-full bg-zinc-100 dark:bg-zinc-700 overflow-hidden rounded-full theme-transition-bg">
-                  <div 
-                    class="absolute top-0 left-0 h-full bg-gradient-to-r from-zinc-700 via-zinc-600 to-zinc-800 dark:from-zinc-300 dark:via-zinc-400 dark:to-zinc-200 rounded-full transition-all duration-1000 progress-bar-animate theme-transition-bg"
-                    style={`width: ${skill.level}%`}
-                  ></div>
-                </div>
-                
-                <div class="flex justify-between mt-1 sm:mt-2 text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 font-mono theme-transition-color">
-                  <span>Beginner</span>
-                  <span>Advanced</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <!-- Gradient overlays for smooth fade effect -->
-        <div class="absolute top-0 bottom-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-white dark:from-zinc-900 to-transparent z-10 theme-transition-bg"></div>
-        <div class="absolute top-0 bottom-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-white dark:from-zinc-900 to-transparent z-10 theme-transition-bg"></div>
-      </div>
-    </div>
+
     
     <!-- Contact Section - Improved for mobile -->
     <div class="max-w-3xl mx-auto text-center theme-transition-all">
-      <h2 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6 theme-transition-color">Get in Touch</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6 theme-transition-color">Contacto</h2>
       <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 theme-transition-color">
-        I'm always open to new opportunities and collaborations. If you'd like to work together or just say hello, 
-        feel free to reach out.
+        Si tienes alguna duda, consulta o te gustaría que hablara de un tema en particular, puedes contactarme sin mosca.
       </p>
       
       <a 
-        href="mailto:hello@example.com" 
+        href="https://linkedin.com" 
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors text-base sm:text-lg font-medium theme-transition-all"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93 .76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
         </svg>
         Say Hello
       </a>
@@ -185,103 +107,7 @@ const skills = [
     }
   }
   
-  /* Tech Stack Slider - Seamless infinite loop */
-  .slider-track {
-    width: fit-content;
-    animation: scroll 40s linear infinite;
-  }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-220px * 6 - 16px * 6)); /* Card width + margin for mobile */
-    }
-  }
-  
-  @media (min-width: 640px) {
-    .slider-track {
-      animation: scroll 60s linear infinite;
-    }
-    
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-280px * 6 - 32px * 6)); /* Card width + margin for desktop */
-      }
-    }
-  }
-  
-  .tech-stack-slider:hover .slider-track {
-    animation-play-state: paused;
-  }
-  
-  .skill-card {
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .skill-card:hover {
-    z-index: 10;
-  }
-  
-  /* Reduce animation complexity on mobile for better performance */
-  @media (max-width: 640px) {
-    .skill-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .skill-card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
-    }
-  }
-  
-  .skill-card:before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-  }
-  
-  .skill-card:hover:before {
-    opacity: 1;
-  }
-  
-  .progress-bar-animate {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .progress-bar-animate:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    animation: progress-shine 2s infinite;
-  }
-  
-  @keyframes progress-shine {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 100%;
-    }
-  }
+
   
   /* Improved touch targets for mobile */
   @media (max-width: 640px) {
@@ -302,126 +128,10 @@ const skills = [
     animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
   
-  /* Smooth card transition during theme switch */
-  .skill-card.theme-transition-element {
-    transition: background-color var(--theme-transition), 
-                border-color var(--theme-transition), 
-                color var(--theme-transition), 
-                box-shadow var(--theme-transition),
-                transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
+
 </style>
 
-<script>
-  // Wait for the DOM to be fully loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    const sliderTrack = document.querySelector('.slider-track');
-    
-    // Create seamless infinite scrolling effect
-    function setupInfiniteScroll() {
-      const cards = document.querySelectorAll('.skill-card');
-      if (!cards.length) return;
-      
-      // Clone the first set of cards and append to create seamless loop
-      const firstSetCount = cards.length / 3; // We have 3 sets in the markup
-      
-      // Set proper animation based on screen size
-      function updateScrollAnimation() {
-        if (window.innerWidth >= 640) {
-          sliderTrack.style.animation = 'scroll 60s linear infinite';
-        } else {
-          sliderTrack.style.animation = 'scroll 40s linear infinite';
-        }
-      }
-      
-      updateScrollAnimation();
-      window.addEventListener('resize', updateScrollAnimation);
-    }
-    
-    setupInfiniteScroll();
-    
-    // Pause animation on hover/touch
-    sliderTrack?.addEventListener('mouseenter', () => {
-      sliderTrack.style.animationPlayState = 'paused';
-    });
-    
-    sliderTrack?.addEventListener('touchstart', () => {
-      sliderTrack.style.animationPlayState = 'paused';
-    });
-    
-    sliderTrack?.addEventListener('mouseleave', () => {
-      sliderTrack.style.animationPlayState = 'running';
-    });
-    
-    sliderTrack?.addEventListener('touchend', () => {
-      setTimeout(() => {
-        sliderTrack.style.animationPlayState = 'running';
-      }, 1000); // Delay resuming animation after touch
-    });
-    
-    // Add hover effects to cards - only on non-touch devices
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const cards = document.querySelectorAll('.skill-card');
-    
-    if (!isTouchDevice) {
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const angleX = (y - centerY) / 15;
-          const angleY = (centerX - x) / 15;
-          
-          card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.08) translateZ(20px)`;
-          
-          // Dynamic shadow based on tilt
-          const shadowX = (x - centerX) / 25;
-          const shadowY = (y - centerY) / 25;
-          card.style.boxShadow = `
-            ${shadowX}px ${shadowY}px 20px rgba(0, 0, 0, 0.1),
-            0 10px 20px rgba(0, 0, 0, 0.05)
-          `;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-          card.style.boxShadow = '';
-        });
-      });
-    } else {
-      // Simpler effects for touch devices
-      cards.forEach(card => {
-        card.addEventListener('touchstart', () => {
-          card.classList.add('is-touched');
-        });
-        
-        card.addEventListener('touchend', () => {
-          setTimeout(() => {
-            card.classList.remove('is-touched');
-          }, 300);
-        });
-      });
-    }
-    
-    // Handle theme transition
-    document.addEventListener('themeChange', () => {
-      // Add special effects during theme transition
-      cards.forEach((card, index) => {
-        // Add staggered animation delay
-        setTimeout(() => {
-          card.classList.add('theme-changing');
-          setTimeout(() => {
-            card.classList.remove('theme-changing');
-          }, 600);
-        }, index * 50);
-      });
-    });
-  });
-</script>
+
 
 <script>
   // Handle SPA transitions for about page
