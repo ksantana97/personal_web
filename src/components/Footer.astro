@@ -3,10 +3,10 @@ const currentYear = new Date().getFullYear();
 
 // Define navigation links
 const navLinks = [
-  { text: 'About', href: '/about' },
+  { text: 'Sobre mí', href: '/about' },
   { text: 'Blog', href: '/blog' },
-  { text: 'Projects', href: '/projects' },
-  { text: 'Tags', href: '/tags' },
+  { text: 'Proyectos', href: '/projects' },
+  { text: 'Temas', href: '/tags' },
   { text: 'RSS', href: '/rss.xml' },
 ];
 
@@ -54,7 +54,7 @@ const socialLinks = [
           </a>
           
           <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400 theme-transition-color leading-relaxed">
-            Sharing thoughts on design, development, and digital experiences.
+            Apuntes y reflexiones sobre matemáticas, computación y humanidades.
           </p>
           
           <!-- Enhanced social links with improved hover effects -->
@@ -78,7 +78,7 @@ const socialLinks = [
         
         <!-- Quick links with enhanced styling -->
         <div class="col-span-1">
-          <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider theme-transition-color relative inline-block after:content-[''] after:absolute after:w-8 after:h-0.5 after:bg-zinc-300 dark:after:bg-zinc-700 after:bottom-0 after:left-0 pb-2">Navigation</h3>
+          <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider theme-transition-color relative inline-block after:content-[''] after:absolute after:w-8 after:h-0.5 after:bg-zinc-300 dark:after:bg-zinc-700 after:bottom-0 after:left-0 pb-2">Navegación</h3>
           <ul class="mt-4 space-y-3">
             {navLinks.map(link => (
               <li>
@@ -103,11 +103,11 @@ const socialLinks = [
       <div class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 theme-transition-all">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <p class="text-sm text-zinc-600 dark:text-zinc-400 theme-transition-color">
-            &copy; {currentYear} All rights reserved.
+            &copy; {currentYear} Todos los derechos reservados.
           </p>
           
           <div class="flex items-center space-x-2">
-            <span class="text-xs text-zinc-500 dark:text-zinc-400 theme-transition-color">Built with</span>
+            <span class="text-xs text-zinc-500 dark:text-zinc-400 theme-transition-color">Creado con</span>
             <a 
               href="https://astro.build" 
               target="_blank" 

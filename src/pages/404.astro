@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="404 - Page Not Found">
+<Layout title="404 - Página no encontrada">
   <div class="relative flex flex-col items-center justify-center min-h-[80vh] py-20 text-center px-4 overflow-hidden">
     <!-- Animated background elements -->
     <div class="absolute inset-0 overflow-hidden">
@@ -17,10 +17,10 @@ import Layout from '../layouts/Layout.astro';
         <h1 class="glitch text-9xl sm:text-[12rem] font-bold text-zinc-900 dark:text-zinc-100 leading-none" data-text="404">404</h1>
       </div>
       
-      <h2 class="mt-6 text-2xl sm:text-3xl font-bold text-zinc-800 dark:text-zinc-200">Page Not Found</h2>
+      <h2 class="mt-6 text-2xl sm:text-3xl font-bold text-zinc-800 dark:text-zinc-200">Página no encontrada</h2>
       
       <p class="mt-6 text-zinc-600 dark:text-zinc-400 max-w-md mx-auto text-lg">
-        The page you're looking for has vanished into the digital void.
+        La página que estás buscando se ha desvanecido en el vacío digital.
       </p>
       
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 relative z-10">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
           </svg>
-          <span class="font-medium relative z-10">Return Home</span>
+          <span class="font-medium relative z-10">Volver al inicio</span>
         </a>
         
         <button 
@@ -42,15 +42,15 @@ import Layout from '../layouts/Layout.astro';
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          <span class="font-medium">Go Back</span>
+          <span class="font-medium">Atrás</span>
         </button>
       </div>
       
       <!-- Random fun fact -->
       <div class="mt-16 p-6 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl shadow-sm max-w-md mx-auto backdrop-blur-sm border border-zinc-100 dark:border-zinc-700/50">
-        <h3 class="text-sm font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Did you know?</h3>
+        <h3 class="text-sm font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">¿Sabías que...?</h3>
         <p class="mt-2 text-zinc-700 dark:text-zinc-300 text-sm" id="fun-fact">
-          The 404 error code originated when CERN's web server displayed room 404 (their server room) as the error message when a file wasn't found.
+          El código de error 404 se originó cuando el servidor web del CERN mostraba la habitación 404 (su sala de servidores) como mensaje de error cuando un archivo no se encontraba.
         </p>
       </div>
     </div>
@@ -65,14 +65,14 @@ import Layout from '../layouts/Layout.astro';
   
   // Array of fun 404 facts
   const funFacts = [
-    "The 404 error code originated when CERN's web server displayed room 404 (their server room) as the error message when a file wasn't found.",
-    "In internet slang, '404' has become shorthand for something that's missing or someone who's clueless.",
-    "Some websites turn their 404 pages into games, like Google's Pac-Man 404 page that once existed.",
-    "The first web server was a NeXT computer used by Tim Berners-Lee at CERN, where the 404 error was born.",
-    "Many companies use creative 404 pages as a way to showcase their brand personality and humor.",
-    "The HTTP 1.0 specification from 1996 officially defined the 404 error as 'Not Found'.",
-    "Studies show that well-designed 404 pages can reduce bounce rates by up to 30%.",
-    "The most common cause of 404 errors is mistyped URLs."
+    "El código de error 404 se originó cuando el servidor web del CERN mostraba la habitación 404 (su sala de servidores) como mensaje de error cuando un archivo no se encontraba.",
+    "En la jerga de internet, '404' se ha convertido en sinónimo de algo que falta o alguien que está despistado.",
+    "Algunos sitios web convierten sus páginas 404 en juegos interactivos.",
+    "El primer servidor web fue una computadora NeXT utilizada por Tim Berners-Lee en el CERN, donde nació el error 404.",
+    "Muchas empresas utilizan páginas 404 creativas para mostrar el estilo y humor de su marca.",
+    "La especificación HTTP 1.0 de 1996 definió oficialmente el error 404 como 'Not Found' (No encontrado).",
+    "Los estudios demuestran que una página 404 bien diseñada puede reducir las tasas de rebote hasta en un 30%.",
+    "La causa más común de los errores 404 son las direcciones URL mal escritas."
   ];
   
   // Display a random fun fact

@@ -49,9 +49,9 @@ const relatedTags = [...new Set(
 )].slice(0, 5);
 ---
 
-<BaseLayout title={`Posts tagged with "${tag}"`}>
+<BaseLayout title={`Artículos etiquetados con "${tag}"`}>
   <div class="max-w-5xl mx-auto px-4 py-10 sm:py-16">
-    <!-- Header section với màu zinc thay vì gray -->
+    <!-- Header section con màu zinc thay vì gray -->
     <div class="relative mb-10 sm:mb-16">
       <div class="absolute -top-20 -left-20 w-48 sm:w-64 h-48 sm:h-64 bg-zinc-100 dark:bg-zinc-900/30 rounded-full blur-3xl opacity-30 animate-blob"></div>
       <div class="absolute -bottom-10 -right-10 w-36 sm:w-48 h-36 sm:h-48 bg-zinc-200 dark:bg-zinc-900/20 rounded-full blur-2xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -61,7 +61,7 @@ const relatedTags = [...new Set(
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          <span>Back to all tags</span>
+          <span>Volver a todos los temas</span>
           <span class="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-zinc-300 dark:bg-zinc-700"></span>
         </a>
         
@@ -83,7 +83,7 @@ const relatedTags = [...new Set(
         </div>
         
         <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mt-4 max-w-2xl mx-auto sm:mx-0">
-          Exploring <span class="font-medium text-zinc-900 dark:text-zinc-100">{sortedPosts.length}</span> articles tagged with <span class="font-medium text-zinc-900 dark:text-zinc-100">"{tag}"</span>
+          Explorando <span class="font-medium text-zinc-900 dark:text-zinc-100">{sortedPosts.length}</span> artículos etiquetados con <span class="font-medium text-zinc-900 dark:text-zinc-100">"{tag}"</span>
         </p>
       </div>
     </div>
@@ -91,7 +91,7 @@ const relatedTags = [...new Set(
     <!-- Related tags section - chuyển sang màu zinc -->
     {relatedTags.length > 0 && (
       <div class="mb-8 sm:mb-12 overflow-x-auto pb-4 hide-scrollbar">
-        <h2 class="text-lg font-medium text-zinc-900 dark:text-zinc-100 mb-3 text-center sm:text-left">Related topics</h2>
+        <h2 class="text-lg font-medium text-zinc-900 dark:text-zinc-100 mb-3 text-center sm:text-left">Temas relacionados</h2>
         <div class="flex gap-2 flex-nowrap justify-center sm:justify-start">
           {relatedTags.map(relatedTag => (
             <a 
