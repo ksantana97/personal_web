@@ -9,8 +9,8 @@ const blogCollection = defineCollection({
     updatedDate: z.date().optional(),
     heroImage: z.string().optional(),
     tags: z.array(z.string()).optional(),
-    // Thêm readingTime vào schema nhưng đặt là optional
     readingTime: z.string().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
@@ -25,6 +25,7 @@ const projectsCollection = defineCollection({
     repoUrl: z.string().optional(),
     liveUrl: z.string().optional(),
     featured: z.boolean().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 

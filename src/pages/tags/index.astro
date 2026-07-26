@@ -2,13 +2,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Get all unique tags from blog posts
-const allPosts = await getCollection('blog');
-const tags = [...new Set(allPosts.flatMap(post => post.data.tags || []))].sort();
+const allPosts = await getCollection('blog') || [];
+const publicPosts = allPosts.filter(post => !post.data.draft);
+const tags = [...new Set(publicPosts.flatMap(post => post.data.tags || []))].sort();
 
 // Count posts for each tag and create tag objects with additional data
 const tagObjects = tags.map(tag => {
-  const count = allPosts.filter(post => post.data.tags?.includes(tag)).length;
+  const count = publicPosts.filter(post => post.data.tags?.includes(tag)).length;
   // Generate a consistent but random-looking hue for each tag
   const hue = Math.abs(tag.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 360);
   return { 

@@ -6,6 +6,7 @@ heroImage: "/projects/devterminal.jpg"
 tags: ["Go", "CLI", "Docker", "GitHub Actions"]
 repoUrl: "https://github.com/username/devterminal"
 featured: false
+draft: true
 ---
 
 ## Overview

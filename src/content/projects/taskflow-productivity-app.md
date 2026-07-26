@@ -7,6 +7,7 @@ tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "WebSocket"]
 repoUrl: "https://github.com/username/taskflow"
 liveUrl: "https://taskflow-app.vercel.app"
 featured: true
+draft: true
 ---
 
 ## Overview

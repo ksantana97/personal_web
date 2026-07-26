@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const projectEntries = await getCollection('projects');
+  const projectEntries = await getCollection('projects', ({ data }) => !data.draft);
   
   const sortedEntries = [...projectEntries].sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()

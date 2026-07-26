@@ -7,6 +7,7 @@ tags: ["Next.js", "D3.js", "Tailwind CSS", "OpenWeather API"]
 repoUrl: "https://github.com/username/weatherlens"
 liveUrl: "https://weatherlens.vercel.app"
 featured: false
+draft: true
 ---
 
 ## Overview

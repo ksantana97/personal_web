@@ -4,7 +4,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import readingTime from 'reading-time'; // Thêm import này nếu chưa có
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
+  const blogEntries = await getCollection('blog', ({ data }) => !data.draft);
   
   // Sort entries by date for better next/prev navigation
   const sortedEntries = [...blogEntries].sort(

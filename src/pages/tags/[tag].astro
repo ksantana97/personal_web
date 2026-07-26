@@ -7,15 +7,16 @@ import FormattedDate from '../../components/FormattedDate.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getCollection('blog') || [];
+  const publicPosts = allPosts.filter(post => !post.data.draft);
   
   // Get all unique tags
-  const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+  const uniqueTags = [...new Set(publicPosts.flatMap(post => post.data.tags || []))];
   
   // Create a path for each tag
   return uniqueTags.map(tag => {
     // Make tag matching case-insensitive
-    const filteredPosts = allPosts.filter(post => 
+    const filteredPosts = publicPosts.filter(post => 
       post.data.tags?.some(t => t.toLowerCase() === (tag as string).toLowerCase()) // Explicitly cast tag to string
     );
     return {

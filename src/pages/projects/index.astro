@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const allProjects = await getCollection('projects') || [];
-const sortedProjects = allProjects.sort(
+const publicProjects = allProjects.filter(project => !project.data.draft);
+const sortedProjects = publicProjects.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 

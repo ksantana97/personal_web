@@ -4,16 +4,16 @@ import Layout from '../layouts/Layout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 // Get all blog posts
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('blog') || [];
+const publicPosts = allPosts.filter(post => !post.data.draft);
 
 // Get the 3 most recent posts
-const recentPosts = allPosts
-  .filter(post => !post.data.draft)
+const recentPosts = publicPosts
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
 
 // Get all unique tags from posts
-const allTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))].slice(0, 5);
+const allTags = [...new Set(publicPosts.flatMap(post => post.data.tags || []))].slice(0, 5);
 ---
 
 <Layout title="Inicio | Blog Personal">
