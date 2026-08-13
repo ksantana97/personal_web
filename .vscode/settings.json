@@ -1,0 +1,18 @@
+{
+  "editor.quickSuggestions": {
+    "other": "off",
+    "comments": "off",
+    "strings": "off"
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.parameterHints.enabled": false,
+  "editor.inlineSuggest.enabled": false,
+  "cursor.cpp.enable": false,
+  "cursor.cpp.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "cloudcode.duetAI.enableInlineSuggestions": false,
+  "cloudcode.gemini.enableInlineSuggestions": false
+}
