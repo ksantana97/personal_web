@@ -37,14 +37,7 @@ if (heroImage) {
     } 
     // Kiểm tra nếu là đường dẫn tương đối
     else if (heroImage.startsWith('/')) {
-      // Nếu Astro.site tồn tại, sử dụng nó làm cơ sở
-      if (Astro.site) {
-        heroImageUrl = new URL(heroImage, Astro.site).toString();
-      } 
-      // Nếu không, sử dụng đường dẫn tương đối như đã cung cấp
-      else {
-        heroImageUrl = heroImage;
-      }
+      heroImageUrl = heroImage;
     }
     // Trường hợp khác
     else {

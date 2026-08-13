@@ -63,7 +63,7 @@ Hemos hablado de «niveles» y es que Python, clasifica los niveles de severidad
 | ERROR | 40 | 
 | CRITICAL | 50 |
 
-Atendiendo a los nombres, más o menos queda especificado cuando usar cada uno. En caso contrario, en la bibliografía tienes la documentación oficial a la que acudir. Leyéndome me doy cuenta que  me he convertido en uno de esos autores que dejan los detalles técnicos a la imaginación del lector o que omiten florituras aludiendo que son triviales.
+Atendiendo a los nombres, más o menos queda especificado cuando usar cada uno. En caso contrario, en la bibliografía tienes la documentación oficial a la que acudir. Leyéndome, me doy cuenta que  me he convertido en uno de esos autores que dejan los detalles técnicos a la imaginación del lector o que omiten florituras aludiendo que son triviales.
 
 ### Ejemplo canónico de logging
 
@@ -144,7 +144,7 @@ Nótese que se van asignando mediante un `.` la relación padre-hijo. Por ejempl
           └───────────────────┘
 ```
 
-¿Por qué esto es de vital importancia? Porque definiendo un logger a nivel de módulo usando `logger = logging.getLogger(__name__)` y por tanto, la estructura de tu sistema de registro de eventos, coincide con la de la librería que estás creando. No obstante, esto no se suele recomendar por lo que se expone a continuación.
+¿Por qué esto es de vital importancia? Porque definiendo un logger a nivel de módulo usando `logger = logging.getLogger(__name__)`, la estructura de tu sistema de registro de eventos, coincide con la de la librería que estás creando. No obstante, esto no se suele recomendar por lo que se expone a continuación.
 
 ## ¿Cuántos loggers necesito realmente?
 Muchos tutoriales sugieren hacer `logger = logging.getLogger(__name__)` por cada archivo `.py`. Sin embargo, esto crea un árbol con muchas ramificaciones y puede ser complicado de gestionar. Según mi experiencia, una mejor aproximación consiste en:
@@ -154,7 +154,7 @@ Muchos tutoriales sugieren hacer `logger = logging.getLogger(__name__)` por cada
 
 
 ## Configuración de tu sistema de registro de eventos
- Como habitantes del siglo XXI (espero), nos hemos atiborrado de ver archivos de configuración planteados en un JSON, YAML o incluso, TOML. Por ello, no vamos a ir a contracorriente y procederemos a configurar nuestro sistema de registro de eventos con un JSON (el caso YAML/TOML es completamente análogo -una vez más me he convertido en lo que detestaba-).
+ Como habitantes del siglo XXI (espero), nos hemos atiborrado de ver archivos de configuración planteados en un JSON, YAML o incluso, TOML. Por ello, no vamos a ir a contracorriente y procederemos a configurar nuestro sistema de registro de eventos con un JSON (el caso YAML/TOML es completamente análogo -una vez más, me he convertido en lo que detestaba-).
 
  ### Esqueleto básico
 
@@ -216,7 +216,9 @@ Nuestro archivo `config.json` (por llamarlo de alguna manera, porque en rigor, p
 
  Nótese que hemos asignado un formato  definido como "simple" y le hemos puesto algunos atributos de `LogRecord` que pueden consultarse en (Python Software Foundation, s. f.).
 
- De esta forma ya podemos crear el logger y hacer uso de él. Un ejemplo de `main.py` sería el siguiente:
+ De esta forma, ya podemos crear el logger y hacer uso de él. 
+ 
+ Un ejemplo de `main.py` sería el siguiente:
 
  ``` python
 import json
@@ -477,8 +479,10 @@ Con lo que nuestro `config.json` quedaría algo así:
 }
 ```
 
-#### Aclaración
-Si en `main.py` instanciaras un logger con cualquier otro nombre que no esté en el JSON, Python lo creará dinámicamente. Al no estar definido explícitamente, heredará el nivel de severidad del root (en este caso, WARNING). Sin embargo, gracias a la propagación automática, cualquier mensaje que emita viajará hacia el nodo raíz. Esto significa que sí se formateará en JSON y sí aplicará nuestros filtros de seguridad, garantizando que incluso los logs de librerías de terceros mantengan una estructura homogénea en toda nuestra aplicación.
+#### Aclaraciones
+1. Si en `main.py` instanciaras un logger con cualquier otro nombre que no esté en el JSON, Python lo creará dinámicamente. Al no estar definido explícitamente, heredará el nivel de severidad del root (en este caso, WARNING). Sin embargo, gracias a la propagación automática, cualquier mensaje que emita viajará hacia el nodo raíz. Esto significa que sí se formateará en JSON y sí aplicará nuestros filtros de seguridad, garantizando que incluso los logs de librerías de terceros mantengan una estructura homogénea en toda nuestra aplicación.
+
+2. Hay que entender que cada llamada a `logger.info` o `logger.error` realiza operaciones de Entrada/Salida de forma síncrona, lo cual detiene el hilo principal de la aplicación y penaliza gravemente el rendimiento del usuario. Esto se puede resolver delegando el envío de logs a un hilo secundario mediante un `QueueHandler` y un `QueueListener`. Sin embargo, estos temas escapan a los límites de este artículo y serán materia de otro posterior.
 
 ## Conclusión
 Bueno, creo que ya en este punto posees suficiente materia gris para hacer auténticas virguerías con este módulo. Cualquier cosa que imagines, serás capaz de plasmarla.
