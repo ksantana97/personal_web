@@ -21,18 +21,32 @@ Antes de proceder con la definición matemática del hiperparámetro, hay que te
 - **Error de generalización:** Es el error real que cometerá el modelo al enfrentarse a datos nuevos y desconocidos que provienen de la misma distribución real de entrenamiento, pero que no formaron parte de su entrenamiento.
 - **Error empírico:** Es la medida del error o la pérdida que comete el modelo exclusivamente sobre los datos de entrenamiento.
 
-Ahora, un modelo de aprendizaje automático puede formalizarse por la aplicación: $$ \begin{aligned} M \colon \mathcal{X} \times \Theta &\longrightarrow \mathcal{Y} \\ (x, \theta) &\longmapsto y = M(x; \theta) \end{aligned} $$ donde:
+Ahora, un modelo de aprendizaje automático puede formalizarse por la aplicación:
+$$
+\begin{aligned} M \colon \mathcal{X} \times \Theta &\longrightarrow \mathcal{Y} \\ (x, \theta) &\longmapsto y = M(x; \theta) \end{aligned}
+$$
+donde:
 
 - $\mathcal{X}$ es el espacio de características (*inputs*), el cual puede ser continuo ($\mathcal{X} \subseteq \mathbb{R}^n$), discreto ($\mathcal{X} \subseteq \mathbb{N}^n$ o conjuntos finitos), o un espacio producto mixto $\mathcal{X} = \prod_{i=1}^n \mathcal{X}_i$
 -  $\mathcal{Y}$ es el espacio de salida (*outputs*), siendo $\mathcal{Y} \subseteq \mathbb{R}^m$ en problemas de regresión y un conjunto discreto $\mathcal{Y} \subseteq \{1, \dots, C\}^m$ en clasificación. 
 -  $\Theta \subseteq \mathbb{R}^d$ ($d \in \mathbb{N}$) es el espacio de parámetros internos del modelo (pesos, coeficientes, sesgos). 
 
-El vector de parámetros óptimo $\theta^* \in \Theta$ es el resultado de un proceso de entrenamiento $\mathcal{A}$, modelado como: $$ \begin{aligned} \mathcal{A} \colon \Lambda \times \mathcal{D} &\longrightarrow \Theta \\ (\lambda, D) &\longmapsto \theta^* = \mathcal{A}(\lambda, D) \end{aligned} $$ donde: 
+El vector de parámetros óptimo $\theta^* \in \Theta$ es el resultado de un proceso de entrenamiento $\mathcal{A}$, modelado como:
+$$
+\begin{aligned} \mathcal{A} \colon \Lambda \times \mathcal{D} &\longrightarrow \Theta \\ (\lambda, D) &\longmapsto \theta^* = \mathcal{A}(\lambda, D) \end{aligned}
+$$
+donde: 
 - $\mathcal{D} = \bigcup_{N=1}^\infty (\mathcal{X} \times \mathcal{Y})^N$ representa el espacio de posibles conjuntos de datos de entrenamiento $D = \{(x_i, y_i)\}_{i=1}^N$ 
 - $\Lambda$ es el espacio de hiperparámetros, que puede contener componentes continuas (e.g., tasa de aprendizaje $\alpha \in \mathbb{R}^+$), discretas (e.g., profundidad máxima $k \in \mathbb{N}$) o categóricas (e.g., tipo de regularización $\in \{\ell_1, \ell_2\}$). 
 
- Generalmente, $\theta^*$ se define mediante la optimización de una función de coste o riesgo empírico regularizado: $$ \theta^* = \arg\min_{\theta \in \Theta} \mathcal{L}(\theta; D, \lambda). $$
- Por último, el **hiperparámetro óptimo** $\lambda^* \in \Lambda$ es aquel que minimiza el **error de generalización** (riesgo real) sobre la distribución subyacente $\mathcal{P}_{(\mathcal{X},\mathcal{Y})}$, comúnmente aproximado mediante el error en un conjunto de validación independiente $D_{\text{val}}$ o mediante validación cruzada: $$ \lambda^* = \arg\min_{\lambda \in \Lambda} \mathcal{E}_{\text{gen}}\big(M(\cdot\,; \theta^*(\lambda))\big) \approx \arg\min_{\lambda \in \Lambda} \mathcal{L}_{\text{val}}\big(\theta^*(\lambda); D_{\text{val}}\big). $$
+ Generalmente, $\theta^*$ se define mediante la optimización de una función de coste o riesgo empírico regularizado:
+$$
+\theta^* = \arg\min_{\theta \in \Theta} \mathcal{L}(\theta; D, \lambda).
+$$
+ Por último, el **hiperparámetro óptimo** $\lambda^* \in \Lambda$ es aquel que minimiza el **error de generalización** (riesgo real) sobre la distribución subyacente $\mathcal{P}_{(\mathcal{X},\mathcal{Y})}$, comúnmente aproximado mediante el error en un conjunto de validación independiente $D_{\text{val}}$ o mediante validación cruzada:
+$$
+\lambda^* = \arg\min_{\lambda \in \Lambda} \mathcal{E}_{\text{gen}}\big(M(\cdot\,; \theta^*(\lambda))\big) \approx \arg\min_{\lambda \in \Lambda} \mathcal{L}_{\text{val}}\big(\theta^*(\lambda); D_{\text{val}}\big).
+$$
 ## Optimización de hiperparámetros en Python
 La búsqueda del hiperparámetro óptimo podemos hacerla a fuerza bruta o por muestreo. Es decir, definiendo un mallado, ir explorando los posibles valores y eligiendo las cantidades que menor error generen sobre el conjunto de validación. Sin embargo, como intuirás, esto no es un proceso muy óptimo y que en proyectos de gran magnitud, el coste temporal y computacional que supone, puede no ser abarcable. Pero tranquilidad, que ya hay gente que ha pensado en esto y ha desarrollado ciertas librerías que vienen a paliar este problema. Hoy hemos seleccionado la librería Optuna, casi como el cantante de reggaeton,  que  usa la optimización bayesiana (principalmente) para obtener la mejor combinación de hiperparámetros posible en un problema de machine learning. No obstante, sus aplicaciones son diversas, pues puede usarse, por ejemplo, en PostgreSQL para encontrar la combinación de memoria y concurrencia que maximice el rendimiento y minimice la latencia para una carga de trabajo específica.
 

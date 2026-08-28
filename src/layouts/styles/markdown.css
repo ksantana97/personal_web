@@ -841,6 +841,11 @@ article {
     overflow-x: auto;
     margin: 1.5rem 0;
   }
+
+  .markdown-content .math-display,
+  .markdown-content .katex-display {
+    text-align: center;
+  }
   
   /* Embedded content */
   .markdown-content iframe {
